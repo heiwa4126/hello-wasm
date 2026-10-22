@@ -6,41 +6,11 @@
 
 ## 準備
 
-Rust の標準的な開発環境と、Nodejs はインストール済みとする。
+[Emscripten と Rust の設定](Emscripten.md) 参照。
 
-### Emscripten (emcc)
-
-参考: [wasm32-unknown-emscripten - The rustc book](https://doc.rust-lang.org/beta/rustc/platform-support/wasm32-unknown-emscripten.html)
-
-```sh
-git clone https://github.com/emscripten-core/emsdk.git
-cd emsdk
-
-./emsdk install latest
-./emsdk activate latest
-source ./emsdk_env.sh
-```
-
-で、
-
-```sh
-emcc --version
-```
-
-`source ./emsdk_env.sh`が面倒な場合は
-
-```sh
-echo 'source "$HOME/emsdk/emsdk_env.sh" >/dev/null' >> ~/.bashrc
-```
-
-### Rust に wasm32-unknown-emscripten ターゲットを追加
-
-```sh
-rustup target add wasm32-unknown-emscripten
-
-# 確認
-rustup target list --installed
-```
+他に
+タスクランナーの [just](https://github.com/casey/just) と
+wasm 実行用に nodejs が必要
 
 ## 実行
 
